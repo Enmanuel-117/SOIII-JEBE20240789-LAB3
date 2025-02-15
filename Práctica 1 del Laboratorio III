@@ -1,0 +1,10 @@
+sudo nano /etc/default/grub
+GRUB_TIMEOUT=20
+sudo update-grub
+sudo reboot
+linux /boot/vmlinuz-xxxx root=UUID=xxxxxxxx ro quiet splash
+linux /boot/vmlinuz-xxxx root=UUID=xxxxxxxx rw init=/bin/bash (Reemplazar)
+passwd root
+sync
+reboot -f
+
