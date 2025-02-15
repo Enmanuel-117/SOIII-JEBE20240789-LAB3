@@ -1,0 +1,42 @@
+-----------------------------------------------------------
+#!/bin/bash
+
+
+USER_HOME="/home/cincspar117"
+BACKUP_DIR="/home/cincspar117/backup"
+DATE=$(date +"%d-%m-%Y:%H:%M")
+BACKUP_FILE="$BACKUP_DIR/backup_$DATE.tar.gz"
+
+
+mkdir -p "$BACKUP_DIR"
+
+tar -czvf "$BACKUP_FILE" "$USER_HOME"
+
+echo "Backup created: $BACKUP_FILE"
+-----------------------------------------------------------
+
+chmod +x backup.sh
+./backup.sh
+
+-----------------------------------------------------------
+#!/bin/bash
+
+DESKTOP="/home/cincspar117/Desktop"
+
+echo "Enter the filename to save the ifconfig output:"
+read FILE_NAME
+
+if [[ ! $FILE_NAME =~ \.txt$ ]]; then
+    FILE_NAME="$FILE_NAME.txt"
+fi
+
+OUTPUT_FILE="$DESKTOP/$FILE_NAME"
+
+ifconfig > "$OUTPUT_FILE"
+
+echo "File created at: $OUTPUT_FILE"
+-----------------------------------------------------------
+
+chmod +x ifconfig_scripting.sh
+./ifconfig_scripting.sh
+
